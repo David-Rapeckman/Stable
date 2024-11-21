@@ -1,6 +1,8 @@
 // app/components/LoginCadastro.tsx
+"use client"; // Adicione esta linha no topo do arquivo
+
 import React, { useState } from 'react';
-import { logarEmpresa } from './services/apiService';
+import { logarEmpresa } from '../../services/apiService';
 
 const LoginCadastro = () => {
     const [loginData, setLoginData] = useState({

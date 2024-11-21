@@ -1,6 +1,6 @@
 // app/page.tsx
 import React from 'react';
-import LoginCadastro from './components/LoginCadastro';
+import LoginCadastro from '../Components/LoginCadastro/LoginCadastro';
 
 const HomePage = () => {
     return (
