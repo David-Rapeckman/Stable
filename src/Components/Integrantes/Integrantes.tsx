@@ -1,4 +1,4 @@
-// src/components/Integrantes.tsx
+// app/components/Integrantes/Integrantes.tsx
 import React, { useState } from 'react';
 
 const Integrantes = () => {
