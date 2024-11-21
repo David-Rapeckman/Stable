@@ -1,6 +1,5 @@
-// app/Cadastro/Cadastro.tsx
 import React, { useState } from 'react';
-import { inserirEmpresa } from '../services/apiService';
+import { inserirEmpresa } from '../../services/apiService';
 
 const Cadastro = () => {
     const [empresaData, setEmpresaData] = useState({
