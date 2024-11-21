@@ -1,4 +1,3 @@
-// app/services/apiService.ts
 export const inserirEmpresa = async (empresaData: any) => {
     try {
         const response = await fetch('/api/empresa', {
