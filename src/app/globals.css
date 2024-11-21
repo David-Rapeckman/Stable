@@ -31,3 +31,28 @@ button {
 button:hover {
   background-color: #005bb5;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #a8e6cf;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  cursor: pointer;
+  height: 50px;
+}
+
+header h1 {
+  text-align: center;
+  flex-grow: 1;
+  color: #007bff;
+}
+
+header a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+}
