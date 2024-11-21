@@ -1,43 +1,63 @@
-import React, { useState } from 'react';
-import { inserirEmpresa } from '../../services/apiService';
+import Link from "next/link";
+import Image from 'next/image';
 
-const Cadastro = () => {
-    const [empresaData, setEmpresaData] = useState({
-        nome: '',
-        cnpj: '',
-        dataAbertura: '',
-        email: '',
-        telefone: '',
-        login: '',
-        senha: '',
-    });
+import logo from '../../../public/assets/svg/logo.svg';
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setEmpresaData({ ...empresaData, [name]: value });
-    };
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        const response = await inserirEmpresa(empresaData);
-        console.log('Empresa inserida:', response);
-    };
-
+export default function Cadastro() {
     return (
-        <div>
-            <h1>Cadastro de Empresa</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="nome" placeholder="Nome" onChange={handleChange} required />
-                <input type="text" name="cnpj" placeholder="CNPJ" onChange={handleChange} required />
-                <input type="date" name="dataAbertura" placeholder="Data de Abertura" onChange={handleChange} required />
-                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                <input type="tel" name="telefone" placeholder="Telefone" onChange={handleChange} required />
-                <input type="text" name="login" placeholder="Login" onChange={handleChange} required />
-                <input type="password" name="senha" placeholder="Senha" onChange={handleChange} required />
-                <button type="submit">Cadastrar Empresa</button>
-            </form>
-        </div>
-    );
-};
+        <>
+            <section className='container formContainer'>
+                <div className='mb-10 flex justify-between items-center border-1 border-solid border-corP1 rounded-full'>
+                    <Link href='cadastro' className="pl-4">
+                        Cadastro cliente
+                    </Link>
+                    <p
+                        className='bg-corP1 text-branco py-5 px-8 rounded-full'
+                    >
+                        Cadastro oficina
+                    </p>
+                </div>
 
-export default Cadastro;
+                <Link href="/"><Image src={logo} alt="" className='logoForm' /></Link>
+                <h3 className={`${inter.className} titleForm`}>Cadastro</h3>
+                <p className={`${inter.className} subtitleForm`}>Complete com seus dados para criar sua conta</p>
+
+                <form action="">
+                    <div className='mb-5'>
+                        <label htmlFor="" className={`${inter.className} labelForm`}>Nome Fantasia</label>
+                        <input type="text" placeholder="Eletropaulo" className="inputsForm" />
+                    </div>
+                    <div className='mb-5'>
+                        <label htmlFor="idCnpj" className={`${inter.className} labelForm`}>CNPJ</label>
+                        <input
+                        type="text"
+                        id="idCnpj"
+                        placeholder="XX.XXX.XXX/0001-XX"
+                        required
+                        minLength={18}
+                        maxLength={18}
+                        name="txtCnpj"
+                        className="inputsForm"
+                        />
+                    </div>
+                    <div className='mb-5'>
+                        <label htmlFor="" className={`${inter.className} labelForm`}>Email</label>
+                        <input type="email" id="idEmail" placeholder="exemplo@email.com" className="inputsForm"/>
+                    </div>
+                    <div className='mb-5'>
+                        <label htmlFor="idSenhaLoja" className={`${inter.className} labelForm`}>Senha</label>
+                        <input type="password" id="idSenhaLoja" name="txtSenhaLoja" placeholder="************" className="inputsForm"/>
+                    </div>
+                    <div className='mb-5'>
+                        <label htmlFor="idConfSenhaLoja" className={`${inter.className} labelForm`}>Confirmar senha</label>
+                        <input type="password" id="idConfSenhaLoja" name="txtConfSenhaLoja" placeholder="************" className="inputsForm"/>
+                    </div>
+                    <button className='botao w-full'>CRIAR CONTA</button>
+                </form>
+            </section>
+        </>
+    );
+}
