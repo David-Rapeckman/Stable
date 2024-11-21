@@ -1,6 +1,6 @@
-// src/pages/integrantes.tsx
+// app/pages/integrantes.tsx
 import React from 'react';
-import Integrantes from '../Components/Integrantes/Integrantes';
+import Integrantes from '../components/Integrantes/Integrantes';
 
 const IntegrantesPage = () => {
     return (
